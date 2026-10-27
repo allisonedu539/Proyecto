@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141052">
+  <meta name="description" content="Una aventura interactiva para explorar y comprender las emociones jugando.">
+  <title>Mundo Mágico: La Isla de las Emociones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="sky-glow sky-glow--one" aria-hidden="true"></div>
+  <div class="sky-glow sky-glow--two" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true">✦　 ˚　✧　　 ·　 ✦　　˚　✧　　 ✦　·　 ˚　✦</div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#" data-action="home" aria-label="Mundo Mágico, inicio">
+      <span class="brand-mark">✦</span>
+      <span>MUNDO <b>MÁGICO</b></span>
+    </a>
+    <nav class="topbar-actions" aria-label="Acciones del juego">
+      <span class="star-counter" aria-live="polite"><span aria-hidden="true">⭐</span> <span id="star-count">0</span></span>
+      <button class="icon-button" id="voice-toggle" type="button" aria-pressed="false" title="Activar o pausar la voz">🔈<span class="sr-only">Activar voz</span></button>
+      <button class="icon-button" id="sound-toggle" type="button" aria-pressed="true" title="Activar o silenciar sonidos">♫<span class="sr-only">Silenciar sonidos</span></button>
+      <button class="teacher-link" type="button" data-screen="teacher">☼ <span>Modo docente</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="screen welcome-screen is-active" id="welcome-screen" aria-labelledby="welcome-title">
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="eyebrow-star">✧</span> UNA AVENTURA PARA SENTIR Y CRECER</p>
+        <h1 id="welcome-title">La Isla de<br>las <span>Emociones</span></h1>
+        <p class="welcome-intro">Un mundo para descubrir lo que sentimos, ayudar a nuestros amigos y llenar el cielo de magia.</p>
+        <button class="button button--start" type="button" data-action="start">COMENZAR AVENTURA <span aria-hidden="true">➜</span></button>
+        <p class="welcome-note">✨ A tu ritmo, con Lumi a tu lado</p>
+      </div>
+      <div class="welcome-world" aria-label="Ilustración de Lumi y una isla mágica">
+        <div class="moon"></div>
+        <div class="welcome-planet" aria-hidden="true">✦</div>
+        <div class="rainbow" aria-hidden="true"></div>
+        <div class="floating-island">
+          <div class="island-top">
+            <span class="mini-tree tree-one">🌳</span><span class="mini-tree tree-two">🌴</span>
+            <span class="flower flower-one">🌼</span><span class="flower flower-two">🌷</span>
+            <span class="welcome-lumi"><img src="assets/lumi.svg" alt="Lumi, un pequeño dragón verde que sonríe"></span>
+          </div>
+          <div class="island-rock"></div>
+          <div class="waterfall waterfall-one"></div><div class="waterfall waterfall-two"></div>
+          <span class="island-sparkle sparkle-one">✦</span><span class="island-sparkle sparkle-two">✧</span>
+        </div>
+        <div class="cloud cloud--welcome cloud-a"></div><div class="cloud cloud--welcome cloud-b"></div>
+        <div class="welcome-orbit" aria-hidden="true"><span>✦</span><span>🌟</span><span>✧</span></div>
+        <div class="welcome-caption"><span>¡Hola, explorador!</span><br>Yo soy Lumi 🐉</div>
+      </div>
+    </section>
+
+    <section class="screen map-screen" id="map-screen" aria-labelledby="map-title" hidden>
+      <div class="section-heading">
+        <div><p class="eyebrow">TU MUNDO TE ESPERA</p><h2 id="map-title">¿A dónde vamos hoy?</h2></div>
+        <div class="guide-pill"><img src="assets/lumi.svg" alt=""><span id="map-guide">¡Elige una isla para empezar!</span></div>
+      </div>
+      <div class="map-layout">
+        <div class="island-map" aria-label="Mapa de las cinco islas de las emociones">
+          <div class="map-aurora" aria-hidden="true"></div>
+          <div class="map-landmarks" aria-hidden="true">
+            <span class="map-landmark landmark--one">☁️</span>
+            <span class="map-landmark landmark--two">🪁</span>
+            <span class="map-landmark landmark--three">✨</span>
+            <span class="map-landmark landmark--four">🫧</span>
+            <span class="map-landmark landmark--five">🕊️</span>
+          </div>
+          <div class="map-rainbow"></div>
+          <span class="map-cloud map-cloud--one"></span><span class="map-cloud map-cloud--two"></span>
+          <svg class="map-path" viewBox="0 0 760 460" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M92 344 C130 270 172 270 224 238 S324 143 376 183 S483 279 540 241 S631 137 680 114" />
+          </svg>
+          <button class="island-node island-node--joy" data-area="joy" type="button">
+            <span class="node-art">🌈</span><span class="node-label">Jardín de<br>la Alegría</span><span class="node-status"></span>
+          </button>
+          <button class="island-node island-node--sadness" data-area="sadness" type="button">
+            <span class="node-art">🌧️</span><span class="node-label">Lago de la<br>Tristeza</span><span class="node-status"></span>
+          </button>
+          <button class="island-node island-node--anger" data-area="anger" type="button">
+            <span class="node-art">🌋</span><span class="node-label">Volcán del<br>Enojo</span><span class="node-status"></span>
+          </button>
+          <button class="island-node island-node--fear" data-area="fear" type="button">
+            <span class="node-art">🌙</span><span class="node-label">Cueva del<br>Miedo</span><span class="node-status"></span>
+          </button>
+          <button class="island-node island-node--calm" data-area="calm" type="button">
+            <span class="node-art">🍃</span><span class="node-label">Bosque de<br>la Calma</span><span class="node-status"></span>
+          </button>
+          <div class="map-lumi"><img src="assets/lumi.svg" alt="Lumi te acompaña por el mapa"><span>¡Por aquí!</span></div>
+        </div>
+        <aside class="treasure-card">
+          <span class="treasure-glow" aria-hidden="true">✧</span>
+          <div class="treasure-chest" aria-hidden="true">🎁</div>
+          <h3>Tu isla mágica</h3>
+          <p>¡Cada aventura te regala una decoración!</p>
+          <div class="island-decorations" id="island-decorations" aria-live="polite"></div>
+          <div class="treasure-progress"><span id="progress-label">0 de 5 aventuras</span><span class="progress-track"><span id="progress-fill"></span></span></div>
+          <button class="button button--small" type="button" data-action="treasure">Abrir cofre <span aria-hidden="true">✦</span></button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen adventure-screen" id="adventure-screen" aria-labelledby="adventure-title" hidden>
+      <div class="adventure-toolbar">
+        <button class="back-button" type="button" data-action="map">← <span>Volver al mapa</span></button>
+        <div class="adventure-progress" aria-label="Progreso de la aventura"><span id="question-count">Reto 1 de 3</span><span class="progress-track"><span id="question-fill"></span></span></div>
+      </div>
+      <div class="adventure-card" id="adventure-card">
+        <div class="adventure-scenery" id="adventure-scenery">
+          <div class="scene-sky" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span><span>✦</span></div>
+          <div class="scene-landmark" id="area-emoji" aria-hidden="true">🌈</div>
+          <div class="scene-islet" aria-hidden="true"></div>
+          <div class="scene-foreground" aria-hidden="true"><span>🌿</span><span>🌼</span><span>🍄</span></div>
+        </div>
+        <div class="adventure-content">
+          <p class="eyebrow" id="area-kicker">JARDÍN DE LA ALEGRÍA</p>
+          <h2 id="adventure-title">Una aventura especial</h2>
+          <div class="friend-scene" id="friend-scene" aria-live="polite"></div>
+          <p class="question-text" id="question-text"></p>
+          <div class="answer-grid" id="answer-grid" role="group" aria-label="Elige una respuesta"></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+          <button class="button button--continue" id="continue-button" type="button" hidden>SEGUIR AVENTURA <span aria-hidden="true">➜</span></button>
+        </div>
+        <div class="adventure-lumi"><img src="assets/lumi.svg" alt=""><span id="lumi-dialogue">¡Vamos a descubrirlo juntos!</span></div>
+      </div>
+    </section>
+
+    <section class="screen teacher-screen" id="teacher-screen" aria-labelledby="teacher-title" hidden>
+      <div class="section-heading teacher-heading">
+        <div><p class="eyebrow">ESPACIO PARA ACOMPAÑAR</p><h2 id="teacher-title">Rincón docente</h2><p class="teacher-intro">Un registro amable del camino recorrido. Las emociones no son calificaciones.</p></div>
+        <button class="back-button" type="button" data-action="map">← <span>Volver al mapa</span></button>
+      </div>
+      <div class="teacher-grid">
+        <article class="teacher-card teacher-summary"><span class="teacher-icon">🧭</span><h3>Aventuras exploradas</h3><p class="summary-number" id="teacher-progress">0 <small>de 5</small></p><p id="teacher-summary-copy">Cada paso es una oportunidad para aprender.</p></article>
+        <article class="teacher-card teacher-history"><span class="teacher-icon">📖</span><h3>Bitácora de aventuras</h3><ul id="teacher-history-list"></ul></article>
+        <article class="teacher-card teacher-skills"><span class="teacher-icon">🌱</span><h3>Habilidades que florecen</h3><div class="skill-chips"><span>Reconocer emociones</span><span>Expresarse con palabras</span><span>Escucha y empatía</span><span>Resolver situaciones</span><span>Respirar y hacer una pausa</span></div></article>
+        <article class="teacher-card teacher-ideas"><span class="teacher-icon">🎲</span><h3>Ideas para jugar juntos</h3><ul><li>Imiten caras frente a un espejo y adivinen cómo se siente cada personaje.</li><li>Usen un peluche para representar un conflicto y pensar en soluciones amables.</li><li>Practiquen respirar lento: huelan una flor imaginaria y soplen una vela.</li><li>Inviten a nombrar una emoción sin juzgarla: todas las emociones pueden visitarnos.</li></ul></article>
+      </div>
+      <p class="privacy-note">🔒 El progreso se guarda solo en este dispositivo. No registra ni califica las respuestas emocionales.</p>
+      <button class="reset-progress" id="reset-progress" type="button">Borrar progreso de este dispositivo</button>
+    </section>
+  </main>
+
+  <div class="celebration" id="celebration" aria-hidden="true">
+    <div class="celebration-card">
+      <div class="celebration-confetti" id="celebration-confetti" aria-hidden="true"></div>
+      <div class="celebration-burst">✨⭐✨</div><p class="eyebrow">¡AVENTURA COMPLETADA!</p><h2 id="celebration-title">¡Lo hiciste genial!</h2><p id="celebration-copy">Una estrella para ti y un regalo para tu isla.</p><div class="celebration-reward"><span class="reward-medal">✦</span><span id="reward-name">Estrella brillante</span><span class="reward-gift">🎁</span></div><button class="button" id="celebration-close" type="button">VOLVER AL MAPA</button>
+    </div>
+  </div>
+  <div class="portal-transition" id="portal-transition" aria-hidden="true"><span>✦</span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
